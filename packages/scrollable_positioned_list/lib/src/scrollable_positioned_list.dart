@@ -51,6 +51,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
     this.minCacheExtent,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   })  : assert(itemCount != null),
         assert(itemBuilder != null),
         itemPositionsNotifier = itemPositionsListener as ItemPositionsNotifier?,
@@ -77,6 +78,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
     this.minCacheExtent,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   })  : assert(itemCount != null),
         assert(itemBuilder != null),
         assert(separatorBuilder != null),
@@ -160,6 +162,10 @@ class ScrollablePositionedList extends StatefulWidget {
   /// in builds of widgets that would otherwise already be built in the
   /// cache extent.
   final double? minCacheExtent;
+
+  /// Used to determine the behavior for dismissing a keyboard linked
+  /// to this list
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
   @override
   State<StatefulWidget> createState() => _ScrollablePositionedListState();
